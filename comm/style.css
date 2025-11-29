@@ -1,0 +1,38 @@
+
+body {
+  font-family: "Comic Sans MS", cursive;
+  color: #ff69b4;
+}
+
+.header {
+  text-align: center;
+  background-color: #ffcce6;
+  border: 2px dotted #ff99cc;
+  padding: 10px;
+}
+
+.nav {
+  text-align: center;
+  background: #ffb6c1;
+  border: 2px dashed #ff69b4;
+  padding: 8px;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: bold;
+}
+
+.nav a:hover {
+  color: yellow;
+}
+
+.content {
+  width: 80%;
+  margin: 20px auto;
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px solid #ff99cc;
+  padding: 15px;
+}
