@@ -613,27 +613,35 @@ function createStarTrail(x, y) {
 
 <script>
   const audio = document.getElementById('bg-music');
+  let musicStarted = false;
 
-  // Функция для старта музыки, если браузер разрешает autoplay
-  function tryAutoplay() {
-    audio.play().catch(() => {
-      // Автоплей заблокирован (обычно на мобильных)
-      console.log();
+  // Функция для старта музыки
+  function startMusic() {
+    if (musicStarted) return;
+    
+    audio.play().then(() => {
+      musicStarted = true;
+      // Убираем все слушатели после успешного запуска
+      window.removeEventListener('scroll', startMusicOnScroll);
+      document.body.removeEventListener('touchstart', startMusic);
+      document.body.removeEventListener('click', startMusic);
+    }).catch(error => {
+      console.log('Автовоспроизведение заблокировано:', error);
     });
   }
 
-  tryAutoplay(); // Попытка сразу на ПК
-
-  // На мобильных устройствах запускаем музыку после первого касания/клика
-  function handleFirstTouch() {
-    audio.play();
-    // После первого касания больше слушатели не нужны
-    document.body.removeEventListener('touchstart', 'scroll', handleFirstTouch);
-    document.body.removeEventListener('click', 'scroll', handleFirstTouch);
+  // Функция для запуска музыки при прокрутке
+  function startMusicOnScroll() {
+    startMusic();
   }
 
-  document.body.addEventListener('touchstart', 'scroll', handleFirstTouch);
-  document.body.addEventListener('click', 'scroll', handleFirstTouch);
+  // Попытка сразу на ПК
+  startMusic();
+
+  // Добавляем слушатели для разных событий
+  window.addEventListener('scroll', startMusicOnScroll, { passive: true });
+  document.body.addEventListener('touchstart', startMusic, { passive: true });
+  document.body.addEventListener('click', startMusic);
 </script>
 
 <style>
@@ -656,6 +664,7 @@ function createStarTrail(x, y) {
 </body>
 
 </html>
+
 
 
 
