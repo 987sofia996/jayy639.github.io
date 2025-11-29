@@ -628,12 +628,12 @@ function createStarTrail(x, y) {
   function handleFirstTouch() {
     audio.play();
     // После первого касания больше слушатели не нужны
-    document.body.removeEventListener('touchstart', handleFirstTouch);
-    document.body.removeEventListener('click', handleFirstTouch);
+    document.body.removeEventListener('touchstart', 'scroll', handleFirstTouch);
+    document.body.removeEventListener('click', 'scroll', handleFirstTouch);
   }
 
-  document.body.addEventListener('touchstart', handleFirstTouch);
-  document.body.addEventListener('click', handleFirstTouch);
+  document.body.addEventListener('touchstart', 'scroll', handleFirstTouch);
+  document.body.addEventListener('click', 'scroll', handleFirstTouch);
 </script>
 
 <style>
@@ -656,5 +656,6 @@ function createStarTrail(x, y) {
 </body>
 
 </html>
+
 
 
