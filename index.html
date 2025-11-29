@@ -607,9 +607,34 @@ function createStarTrail(x, y) {
     </script>
     </div>
     
-   <audio autoplay loop>
+   <audio id="bg-music" loop>
   <source src="song1.mp3" type="audio/mpeg">
 </audio>
+
+<script>
+  const audio = document.getElementById('bg-music');
+
+  // Функция для старта музыки, если браузер разрешает autoplay
+  function tryAutoplay() {
+    audio.play().catch(() => {
+      // Автоплей заблокирован (обычно на мобильных)
+      console.log();
+    });
+  }
+
+  tryAutoplay(); // Попытка сразу на ПК
+
+  // На мобильных устройствах запускаем музыку после первого касания/клика
+  function handleFirstTouch() {
+    audio.play();
+    // После первого касания больше слушатели не нужны
+    document.body.removeEventListener('touchstart', handleFirstTouch);
+    document.body.removeEventListener('click', handleFirstTouch);
+  }
+
+  document.body.addEventListener('touchstart', handleFirstTouch);
+  document.body.addEventListener('click', handleFirstTouch);
+</script>
 
 <style>
 
@@ -631,4 +656,5 @@ function createStarTrail(x, y) {
 </body>
 
 </html>
+
 
