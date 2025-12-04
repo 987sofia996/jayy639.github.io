@@ -353,11 +353,83 @@ loadTrack(currentTrack);
 </script>
 
 
-
+<script>
+// Автоматический фикс для мобильных
+if (window.innerWidth < 768) {
+    // 1. Создаем обертку для скролла
+    const wrapper = document.createElement('div');
+    wrapper.className = 'mobile-scroll-fix';
+    wrapper.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow: auto;
+        background: #000;
+        z-index: 1;
+    `;
+    
+    // 2. Создаем внутренний контейнер для центрирования
+    const inner = document.createElement('div');
+    inner.style.cssText = `
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 100vh;
+        padding: 20px;
+        width: 100%;
+    `;
+    
+    // 3. Находим canvas-box
+    const canvasBox = document.querySelector('.canvas-box');
+    const hu2 = document.querySelector('.hu2');
+    
+    // 4. Фиксим hu2
+    if (hu2) {
+        hu2.style.cssText = `
+            position: absolute;
+            width: 1050px !important;
+            left: 0 !important;
+            transform: none !important;
+            top: -100px;
+            height: 1700px;
+            z-index: -1;
+            background-size: contain;
+            background-position: center;
+        `;
+    }
+    
+    // 5. Фиксим canvas-box
+    canvasBox.style.cssText = `
+        position: relative;
+        width: 1050px;
+        height: 1400px;
+        margin: 0;
+        left: 0 !important;
+        transform: none !important;
+        flex-shrink: 0;
+    `;
+    
+    // 6. Вставляем в DOM
+    inner.appendChild(canvasBox);
+    wrapper.appendChild(inner);
+    document.body.innerHTML = '';
+    document.body.appendChild(wrapper);
+    
+    // 7. Сохраняем элементы, которые были в body
+    const player = document.querySelector('.retro-player');
+    const borders = document.querySelectorAll('.pattern-border, .pattern-border1, .pattern-border2');
+    
+    if (player) document.body.appendChild(player);
+    borders.forEach(border => document.body.appendChild(border));
+}
+</script>
 
 </body>
 
 </html>
+
 
 
 
