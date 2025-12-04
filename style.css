@@ -1013,36 +1013,31 @@ position: absolute;
 }
 
 @media (max-width: 768px) {
-    /* Для фиксированных элементов */
-    html body .pattern-border,
-    html body .pattern-border2,
-    html body .retro-player {
-        left: 20px !important;
-        width: calc(100vw - 20px) !important;
-        max-width: calc(100vw - 20px) !important;
+    /* Делаем весь сайт масштабируемым */
+    body {
+        zoom: 0.5; /* Или transform: scale(0.5) */
+        transform-origin: top left;
+        width: 200vw; /* В 2 раза шире */
+        min-height: 200vh;
+        overflow-x: auto;
+        overflow-y: auto;
     }
     
-    /* Для абсолютно позиционированных элементов */
-    html body .canvas-box,
-    html body .hu2,
-    html body .section1,
-    html body .section15,
-    html body .section4,
-    html body .section5,
-    html body .section6,
-    html body .section11,
-    html body .section151,
-    html body .pattern-border1 {
-        left: calc(50% + 10px) !important;
-        transform: translateX(-50%) !important;
+    /* Фиксированные элементы масштабируем отдельно */
+    .pattern-border,
+    .pattern-border2,
+    .retro-player {
+        zoom: 1; /* Отменяем масштаб для фиксированных */
+        transform: scale(1);
+        left: 0;
+        width: 100vw;
     }
     
-    /* Для body и html */
-    html, body {
-        padding-left: 20px !important;
-        margin-left: 0 !important;
-        overflow-x: auto !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
+    /* Центральный контейнер */
+    .canvas-box {
+        transform: scale(0.5) translateX(-50%);
+        transform-origin: top left;
+        width: 2100px; /* 1050px * 2 */
+        height: 2800px; /* 1400px * 2 */
     }
 }
