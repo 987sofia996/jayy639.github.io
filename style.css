@@ -1013,9 +1013,16 @@ position: absolute;
 }
 
 @media (max-width: 768px) {
-    body {
-        transform: translateX(500px); /* Сдвигаем всё на 20px вправо */
-        width: calc(100% - 500px); /* Компенсируем ширину */
-        overflow-x: scroll;
+    html {
+        padding-left: 100px;
+        overflow-x: auto;
+    }
+    
+    /* Все элементы с фиксированной позицией */
+    .pattern-border,
+    .pattern-border2,
+    .retro-player {
+        left: 100px;
+        width: calc(100vw - 100px);
     }
 }
