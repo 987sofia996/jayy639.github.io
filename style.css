@@ -1013,3 +1013,31 @@ position: absolute;
   border: 2px solid #000000;
   text-shadow: 0 0 5px rgb(255, 255, 255);
 }
+
+/* --- мобильный "воздух" по бокам --- */
+@media (max-width: 768px) {
+  html, body {
+    width: 100%;
+    overflow-x: auto; /* разрешаем горизонтальную прокрутку, если нужно */
+  }
+
+  body {
+    display: flex;
+    justify-content: center;
+    padding: 0 20px; /* ← добавляем отступы по бокам */
+    box-sizing: border-box;
+  }
+
+  .canvas-box {
+    position: relative;
+    left: 0 !important;
+    transform: none !important;
+    margin: 130px auto;
+  }
+
+  .hu2 {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1050px !important;
+  }
+}
