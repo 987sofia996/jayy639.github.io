@@ -1013,36 +1013,3 @@ position: absolute;
   border: 2px solid #000000;
   text-shadow: 0 0 5px rgb(255, 255, 255);
 }
-
-@media (max-width: 768px) {
-    html, body {
-        width: 100%;
-        height: 100%;
-        overflow: auto !important; /* Разрешаем скролл */
-        touch-action: manipulation; /* Улучшаем touch-события */
-    }
-    
-    .canvas-box {
-        width: 1050px !important; /* Фиксированная ширина */
-        height: 1400px !important; /* Фиксированная высота */
-        margin: 50px auto !important;
-        position: relative;
-        left: 0 !important;
-        transform: none !important;
-        zoom: 0.8; /* Немного уменьшаем по умолчанию */
-    }
-    
-    /* Отключаем все медиа-запросы, которые меняют layout */
-    .section1, .section2, .section3, .section4, 
-    .section5, .section6, .section11, .section15,
-    .section151, .section25, .section35 {
-        position: absolute !important;
-        /* Оставляем ваши оригинальные значения */
-    }
-    
-    /* Убираем все transform для мобильных */
-    .section1, .section11, .section15, .section151 {
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-    }
-}
