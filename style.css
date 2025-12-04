@@ -1013,8 +1013,9 @@ position: absolute;
 }
 
 @media (max-width: 768px) {
-    .canvas-box {
-        width: 95%;
-        margin: 80px 50px;
-        padding: 10px;
+    body {
+        transform: translateX(500px); /* Сдвигаем всё на 20px вправо */
+        width: calc(100% - 500px); /* Компенсируем ширину */
+        overflow-x: scroll;
     }
+}
