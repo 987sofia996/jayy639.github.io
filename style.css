@@ -1008,26 +1008,34 @@ position: absolute;
 }
 
 @media (max-width: 768px) {
-  body {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* всё центрируется по горизонтали */
-  }
-
-  .canvas-box,
-  .hu2,
-  .section1,
-  .section15,
-  .section4,
-  .section5,
-  .section6,
-  .section11,
-  .section151,
-  .sectionhui {
-    position: relative !important;
-    left: auto !important;
-    transform: none !important; /* убираем сдвиг -50% */
-    margin-left: auto;
-    margin-right: auto;
-  }
+    html, body {
+        width: 100%;
+        height: 100%;
+        overflow: auto !important; /* Разрешаем скролл */
+        touch-action: manipulation; /* Улучшаем touch-события */
+    }
+    
+    .canvas-box {
+        width: 1050px !important; /* Фиксированная ширина */
+        height: 1400px !important; /* Фиксированная высота */
+        margin: 50px auto !important;
+        position: relative;
+        left: 0 !important;
+        transform: none !important;
+        zoom: 0.8; /* Немного уменьшаем по умолчанию */
+    }
+    
+    /* Отключаем все медиа-запросы, которые меняют layout */
+    .section1, .section2, .section3, .section4, 
+    .section5, .section6, .section11, .section15,
+    .section151, .section25, .section35 {
+        position: absolute !important;
+        /* Оставляем ваши оригинальные значения */
+    }
+    
+    /* Убираем все transform для мобильных */
+    .section1, .section11, .section15, .section151 {
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+    }
 }
