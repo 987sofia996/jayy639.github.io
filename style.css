@@ -64,7 +64,8 @@
     background-size: cover;
     background-attachment: fixed;
     margin: 0;
-    display: flex;           
+    width: 100vw !important;
+    min-height: 100vh !important;           
     justify-content: center;
     cursor: url('cur1054.cur') 2 2, auto !important;
     touch-action: pan-x pan-y pinch-zoom;
@@ -1013,31 +1014,15 @@ position: absolute;
 }
 
 @media (max-width: 768px) {
-    /* Делаем весь сайт масштабируемым */
-    body {
-        zoom: 0.5; /* Или transform: scale(0.5) */
-        transform-origin: top left;
-        width: 200vw; /* В 2 раза шире */
-        min-height: 200vh;
+    html {
+        padding-left: 100px;
         overflow-x: auto;
-        overflow-y: auto;
     }
     
-    /* Фиксированные элементы масштабируем отдельно */
+    /* Все элементы с фиксированной позицией */
     .pattern-border,
     .pattern-border2,
     .retro-player {
-        zoom: 1; /* Отменяем масштаб для фиксированных */
-        transform: scale(1);
-        left: 0;
-        width: 100vw;
+        left: 100px;
+        width: calc(100vw - 100px);
     }
-    
-    /* Центральный контейнер */
-    .canvas-box {
-        transform: scale(0.5) translateX(-50%);
-        transform-origin: top left;
-        width: 2100px; /* 1050px * 2 */
-        height: 2800px; /* 1400px * 2 */
-    }
-}
