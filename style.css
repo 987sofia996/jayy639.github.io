@@ -69,7 +69,7 @@
     display: flex;           
     justify-content: center;
     cursor: url('cur1054.cur') 2 2, auto !important;
-    
+    touch-action: pan-x pan-y pinch-zoom;
 }
 
 a:hover {
@@ -1011,28 +1011,4 @@ position: absolute;
   border-radius: 5px;
   border: 2px solid #000000;
   text-shadow: 0 0 5px rgb(255, 255, 255);
-}
-
-/* --- мобильный "воздух" по бокам --- */
-@media (max-width: 768px) {
-  html, body {
-  width: 100%;
-  min-width: 320px; /* для мобильных */
-  overflow-x: auto; /* разрешаем горизонтальный скролл при увеличении */
-  touch-action: pan-x pan-y pinch-zoom; /* для корректного масштабирования на мобильных */
-}
-
-  body {
-    display: flex;
-    justify-content: center;
-    padding: 0 20px; /* ← добавляем отступы по бокам */
-    box-sizing: border-box;
-  }
-
-  .hu2 {
-  position: absolute;
-  left: 50%;
-  top: -100px;
-  transform: translateX(-50%);
-  width: 1800px; /* можно оставить фиксированным */
 }
