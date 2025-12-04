@@ -1014,7 +1014,7 @@ position: absolute;
 }
 
 @media (max-width: 768px) {
-    html {
+    body {
         padding-left: 100px;
         overflow-x: auto;
     }
