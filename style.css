@@ -1012,17 +1012,23 @@ position: absolute;
   text-shadow: 0 0 5px rgb(255, 255, 255);
 }
 
+/* Мобильная версия - сдвиг вправо */
 @media (max-width: 768px) {
     html {
-        padding-left: 100px;
+        padding-left: 20px;
         overflow-x: auto;
     }
     
-    /* Все элементы с фиксированной позицией */
+    body {
+        margin-left: 0 !important;
+        padding-left: 0 !important;
+        width: 100% !important;
+    }
+    
     .pattern-border,
     .pattern-border2,
     .retro-player {
-        left: 100px;
-        width: calc(100vw - 100px);
+        left: 20px !important;
+        width: calc(100vw - 20px) !important;
     }
 }
