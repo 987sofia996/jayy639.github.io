@@ -1017,9 +1017,11 @@ position: absolute;
 /* --- мобильный "воздух" по бокам --- */
 @media (max-width: 768px) {
   html, body {
-    width: 100%;
-    overflow-x: auto; /* разрешаем горизонтальную прокрутку, если нужно */
-  }
+  width: 100%;
+  min-width: 320px; /* для мобильных */
+  overflow-x: auto; /* разрешаем горизонтальный скролл при увеличении */
+  touch-action: pan-x pan-y; /* для корректного масштабирования на мобильных */
+}
 
   body {
     display: flex;
@@ -1036,8 +1038,10 @@ position: absolute;
   }
 
   .hu2 {
-    left: 50%;
-    transform: translateX(-50%);
-    width: 1050px !important;
-  }
+  position: absolute;
+  left: 50%;
+  top: -100px;
+  transform: translateX(-50%);
+  width: 1800px; /* можно оставить фиксированным */
+  max-width: none; /* убираем ограничения */
 }
