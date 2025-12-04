@@ -53,7 +53,6 @@
   background-repeat: no-repeat;
   background-size: auto 100%;
   object-fit: contain;
-  max-width: 100vw;
   overflow: hidden;
   z-index: -1 !important;
 }
@@ -79,11 +78,11 @@ a:hover {
 
 .canvas-box {
   position: absolute;
-    width: 1050px !important;
+    width: 1050px;
     height: 1400px;
     margin: 130px auto;
-    left: 50% !important; 
-  transform: translateX(-50%) !important;
+    left: 50%; 
+  transform: translateX(-50%);
     background-image: url('black-linen.jpg');   /* ← путь к твоему изображению */
   background-repeat: no-repeat;            /* не повторять */
   background-position: center center;      /* центрировать */
@@ -1020,7 +1019,7 @@ position: absolute;
   width: 100%;
   min-width: 320px; /* для мобильных */
   overflow-x: auto; /* разрешаем горизонтальный скролл при увеличении */
-  touch-action: pan-x pan-y; /* для корректного масштабирования на мобильных */
+  touch-action: pan-x pan-y pinch-zoom; /* для корректного масштабирования на мобильных */
 }
 
   body {
@@ -1030,18 +1029,10 @@ position: absolute;
     box-sizing: border-box;
   }
 
-  .canvas-box {
-    position: relative;
-    left: 0 !important;
-    transform: none !important;
-    margin: 130px auto;
-  }
-
   .hu2 {
   position: absolute;
   left: 50%;
   top: -100px;
   transform: translateX(-50%);
   width: 1800px; /* можно оставить фиксированным */
-  max-width: none; /* убираем ограничения */
 }
