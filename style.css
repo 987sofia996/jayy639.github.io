@@ -1,6 +1,12 @@
 
-  .pattern-border {
-        position: absolute;
+ html {
+  position: relative;
+  width: auto;
+  height: auto;
+}
+
+.pattern-border {
+        position: fixed;
         left: 0;
         width: 100%;
         height: 300px;
@@ -63,9 +69,6 @@
     background-position: center center;
     background-size: cover;
     background-attachment: fixed;
-    left: 50%; 
-    transform: translateX(-50%);
-    margin: 0 0;
     width: 1900px;
     min-height: 1700px;       
     justify-content: center;
@@ -73,6 +76,7 @@
     touch-action: pan-x pan-y pinch-zoom;
     overflow-x: scroll;
 }
+
 
 a:hover {
     cursor: url('cur1054.cur') 2 2, auto !important;
