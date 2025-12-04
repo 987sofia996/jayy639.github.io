@@ -1012,23 +1012,37 @@ position: absolute;
   text-shadow: 0 0 5px rgb(255, 255, 255);
 }
 
-/* Мобильная версия - сдвиг вправо */
 @media (max-width: 768px) {
-    html {
-        padding-left: 20px;
-        overflow-x: auto;
-    }
-    
-    body {
-        margin-left: 0 !important;
-        padding-left: 0 !important;
-        width: 100% !important;
-    }
-    
-    .pattern-border,
-    .pattern-border2,
-    .retro-player {
+    /* Для фиксированных элементов */
+    html body .pattern-border,
+    html body .pattern-border2,
+    html body .retro-player {
         left: 20px !important;
         width: calc(100vw - 20px) !important;
+        max-width: calc(100vw - 20px) !important;
+    }
+    
+    /* Для абсолютно позиционированных элементов */
+    html body .canvas-box,
+    html body .hu2,
+    html body .section1,
+    html body .section15,
+    html body .section4,
+    html body .section5,
+    html body .section6,
+    html body .section11,
+    html body .section151,
+    html body .pattern-border1 {
+        left: calc(50% + 10px) !important;
+        transform: translateX(-50%) !important;
+    }
+    
+    /* Для body и html */
+    html, body {
+        padding-left: 20px !important;
+        margin-left: 0 !important;
+        overflow-x: auto !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
 }
