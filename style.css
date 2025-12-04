@@ -79,11 +79,11 @@ a:hover {
 
 .canvas-box {
   position: absolute;
-    width: 1050px;
+    width: 1050px !important;
     height: 1400px;
     margin: 130px auto;
-    left: 50%; 
-  transform: translateX(-50%);
+    left: 50% !important; 
+  transform: translateX(-50%) !important;
     background-image: url('black-linen.jpg');   /* ← путь к твоему изображению */
   background-repeat: no-repeat;            /* не повторять */
   background-position: center center;      /* центрировать */
