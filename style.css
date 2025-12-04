@@ -1012,17 +1012,3 @@ position: absolute;
   border: 2px solid #000000;
   text-shadow: 0 0 5px rgb(255, 255, 255);
 }
-
-@media (max-width: 768px) {
-    body {
-        padding-left: 100px;
-        overflow-x: auto;
-    }
-    
-    /* Все элементы с фиксированной позицией */
-    .pattern-border,
-    .pattern-border2,
-    .retro-player {
-        left: 100px;
-        width: calc(100vw - 100px);
-    }
